@@ -1,0 +1,24 @@
+import React, {Component} from 'react';
+import {Link, withRouter} from 'react-router'
+
+import {Container, Button } from 'semantic-ui-react'
+
+class Home extends Component {
+  stater = {
+    value: 'gelo'
+  }
+
+  link  = () => {
+    this.props.history.push('/comp2')
+  }
+  render (){
+    let button = (
+
+    )
+  }
+
+ return (
+   <Container className = 'fancy' style
+ )
+
+ export default withRouter(LoginPage);
