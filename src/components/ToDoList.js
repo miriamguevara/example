@@ -8,37 +8,47 @@ class ToDoList extends Component{
     super(props);
 
     this.state = {
-      userInput: '',
+      userInput: 'aaa',
       list: []
     }
   }
 changeUserInput(input){
   this.setState({
     userInput: input
-  }, ()=> console.log(input))
+  });
 }
+//make arrary to add to list
+addToList(input){
+  let listArrary = this.state.list;
+
+  listArrary.push(input);
+
+  this.setState({
+    list: listArrary,
+    userInput: ''
+  })
+}
+
 state = {
   value: 'test'
 }
-componentDidMount(){
-  var task = fire.database().ref('/');
-  task.on('value', function(snapshot) {
-    //save to state
-    //this.setState({value:})
-    console.log(snapshot)
-});
-}
-  render(){
-    return(
+
+  render() {
+    return (
       <div className="list-main">
         <input
-          onChange ={ (e)=>this.changeUserInput(e.target.value)}
+          onChange ={ (e)=>this.changeUserInput(e.target.value) }
           value = {this.state.userInput}
           type = "text"
         />
-        <button>  onClick={ } </button>
+        <button>  onClick={ ()=> this.addToList(this.state.userInput) }> press me </button>
+
+        <ul>
+          {this.state.list.map( (val)=> <li>{val}</li>)}
+        </ul>
+
       </div>
     );
   }
 }
-export default withRouter(Home);
+export default withRouter(ToDoList);

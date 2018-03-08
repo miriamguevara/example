@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router'
-
+import fire from './utils/firebase'
 import {Container, Button } from 'semantic-ui-react'
 
-class Home extends Component {
+
+class SignIn extends Component {
   stater = {
     value: 'gelo'
   }
@@ -12,13 +13,11 @@ class Home extends Component {
     this.props.history.push('/comp2')
   }
   render (){
-    let button = (
 
-    )
   }
 
  return (
-   <Container className = 'fancy' style
+
  )
 
- export default withRouter(LoginPage);
+ export default withRouter(SignIn);
