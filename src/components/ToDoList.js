@@ -1,15 +1,15 @@
 import React, { Component }  from 'react';
-import {Container, Button} from 'sematnic-ui-react'
+import {Container, Button} from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom'
-import fire from './utils/firebase'
+import fire from './../utils/firebase'
 
 class ToDoList extends Component{
   constructor(props){
     super(props);
 
     this.state = {
-      userInput: 'aaa',
-      list: []
+      userInput: ' ',
+      list: [ ]
     }
   }
 changeUserInput(input){

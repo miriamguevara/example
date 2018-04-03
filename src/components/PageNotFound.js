@@ -1,15 +1,24 @@
-import {withRouter} from 'react-router-dom'
 import React, { Component } from 'react';
 
-class PageNotFound extends Component{
-  render(){
-    return(
-      <div>
-      page not found 
-      </div>
+import { Container } from 'semantic-ui-react'
 
-    )
+class PageNotFound extends Component {
+  state = {
+    value: 'hello'
+  }
+
+
+
+  render() {
+
+    return (
+      
+      <Container className='fancy' style={{textAlign: 'center', color: 'blue'}}>
+      Page Not Found !!!!
+
+      </Container>
+    );
   }
 }
 
-export default withRouter(PageNotFound);
+export default PageNotFound;

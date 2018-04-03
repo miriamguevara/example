@@ -1,23 +1,45 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router'
-import fire from './utils/firebase'
-import {Container, Button } from 'semantic-ui-react'
 
+import fire from '../utils/firebase'
+import {withRouter} from 'react-router-dom'
 
 class SignIn extends Component {
-  stater = {
-    value: 'gelo'
+  state ={
+    email: '',
+    password: ''
   }
-
-  link  = () => {
-    this.props.history.push('/comp2')
-  }
+signIn = ()=> {
+  this.props.history.push('/user')
+}
   render (){
-
+    return (
+      <div className = "form-inline" style = {{margin: '5%'}}>
+        <h2>Sign In</h2>
+        <div className = "form-group">
+          <input
+            className = "form-control"
+            type = "text"
+            style ={{marginRight:'5px'}}
+            placeholder ="user@example.com"
+            onChange = {event => this.setState({email: event.target.value})}
+          />
+          <input
+            className = "form-control"
+            type = "password"
+            style ={{marginRight:'5px' }}
+            placeholder = "password"
+            onChange = {event => this.setState({password: event.target.value})}
+          />
+        <button
+          className = "bn bn-primary"
+          type = "button"
+          onClick = {() => this.signIn()}
+        > SignIn
+        </button>
+      </div>
+    </div>
+    )
   }
+}
 
- return (
-
- )
-
- export default withRouter(SignIn);
+export default withRouter(SignIn);

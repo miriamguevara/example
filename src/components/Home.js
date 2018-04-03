@@ -1,35 +1,45 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router'
-import fire from './utils/firebase'
-import {Container, Button } from 'semantic-ui-react'
+import fire from './../utils/firebase';
+import {Link, withRouter} from 'react-router-dom'
+import { Header, Icon, Image, Container, Button } from 'semantic-ui-react'
+import img from '../images/list.png'
+
 
 class Home extends Component {
-  state = {
-    value: 'henlo'
+  link = () => {
+    this.props.history.push('/signIn')
   }
-  //to actually use
-  componentDidMount(){
-    let t = this
-    fire.database().ref('/').on('value', (snapshot) => {
-    //save to state
-    this.setState({value: snapshot.val().comp1})
-    //console.log(snapshot.val().comp1)
-  });
+  link2 = () => {
+    this.props.history.push('/signUp')
   }
-  //to write data (us. with onbutton click)
-  writeData = () => {
-    fire.database().ref('/').set({
-      //erases all at root 
-      comp1: this.state.newValue
-    })
-  }
-  link  = () => {
-    this.props.history.push('/comp2')
-  }
+
   render() {
+
+    let button = (
+      <Button
+        onClick={this.link}
+      >Sign In </Button>
+    )
+    let button2 = (
+      <Button
+        onClick={this.link2}
+      >Sign Up?</Button>
+    )
     return (
       <Container>
+      <br/>
+      <Header as='h2' icon textAlign='center'>
+        <Header.Content>
+          Welcome!
+        </Header.Content>
+      </Header>
+        <Container className='fancy' style={{textAlign: 'center', color: 'green'}}>
+          <br/><img src={img} className="logo" alt="logo"/><br/>
+          <div>{button}<br/> <br/> {button2}</div>
 
+
+
+          </Container>
       </Container>
     );
   }

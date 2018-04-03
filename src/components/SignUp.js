@@ -1,22 +1,16 @@
-import React, {Componenet} from 'react';
-import {firebaseApp} from '../firebase'
+import React, {Component} from 'react';
+import { Container, Button } from 'semantic-ui-react'
+import fire from '../utils/firebase'
 import {withRouter} from 'react-router-dom'
 
-class SignUp extends Component{
+class SignUp extends Component {
   state ={
     email: '',
     password: ''
   }
-signUp(){
-  console.log('this.state', this.state);
-  const { email, password } = this.state;
-  firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-  //catch error
-    .catch(error => {
-      //console.log('error', error);
-      this.setState({error})
-    })
-}
+  signUp = () => {
+    this.props.history.push('/user')
+  }
   render (){
     return (
       <div className = "form-inline" style = {{margin: '5%'}}>
@@ -26,7 +20,7 @@ signUp(){
             className = "form-control"
             type = "text"
             style ={{marginRight:'5px'}}
-            placeholder ="email"
+            placeholder ="email@example.com"
             onChange = {event => this.setState({email: event.target.value})}
           />
           <input
@@ -36,14 +30,13 @@ signUp(){
             placeholder = "password"
             onChange = {event => this.setState({password: event.target.value})}
           />
-        <button
+        <Button
           className = "bn bn-primary"
           type = "button"
           onClick = {() => this.signUp()}
-        > Sign Up
-        </button>
+        > Sign Me Up
+        </Button>
       </div>
-      <div> {this.state.error.message}</div>
     </div>
     )
   }
