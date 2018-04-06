@@ -12,21 +12,21 @@ import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import ToDoList from './components/ToDoList'
 import PageNotFound from './components/PageNotFound'
-import HeaderExampleUsersIcon from './components/HeaderExampleUsersIcon'
 
-
+import pastel from './images/pastel.png'
 class App extends Component {
   state = {
     comp: true
   }
+
 
 switchState = () => this.setState({comp: !this.state.comp})
 
   render() {
 
     return (
-      <Container>
-        <HeaderExampleUsersIcon />
+      <div className = "list">
+
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/comp1' component={Comp1}/>
@@ -38,7 +38,7 @@ switchState = () => this.setState({comp: !this.state.comp})
           <Route path='/' component={PageNotFound}/>
         </Switch>
 
-      </Container>
+      </div>
     );
   }
 }

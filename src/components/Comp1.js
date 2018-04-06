@@ -10,10 +10,6 @@ class Comp1 extends Component {
   }
 
   componentDidMount(){
-    // let t = this
-    // fire.database().ref('/').on('value', function(snapshot) {
-    //   t.setState({value: snapshot.val().comp1})
-    // });
     fire.database().ref('/').on('value', (snapshot) => {
       this.setState({value: snapshot.val().comp1})
       console.log("data updated")
