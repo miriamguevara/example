@@ -42,6 +42,8 @@ link = ()=> {
           <br />
           <br />
        <Input
+          type = "password"
+          name = "password"
           iconPosition='left'
           placeholder='Password'
           onChange = {event => this.setState({password: event.target.value})}>

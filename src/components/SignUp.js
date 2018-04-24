@@ -29,7 +29,7 @@ link = ()=> {
       <Header as='h2' floated='left'>
           Do ToDo
         </Header>
-      <br /><br />
+      <br /><br /><br /><br /><br /><br /><br />
         <Header as='h2' textAlign='center' >
           Sign Up
           <br/>

@@ -1,7 +1,8 @@
 import React, { Component }  from 'react';
-import {Container, Button} from 'semantic-ui-react';
+import {Container, Button, Input, Icon, List, Checkbox } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom'
 import fire from './../utils/firebase'
+import MainMenu from './MainMenu'
 
 class ToDoList extends Component{
   constructor(props){
@@ -35,19 +36,29 @@ state = {
 
   render() {
     return (
-      <div className="list-main">
-        <input
-          onChange ={ (e)=>this.changeUserInput(e.target.value) }
-          value = {this.state.userInput}
-          type = "text"
-        />
-        <button>  onClick={ ()=> this.addToList(this.state.userInput) }> press me </button>
+      <Container >
+      <br />
+      <MainMenu/>
+      <br /><br />
+        <Input
+          placeholder='Task'
+          onChange = {event => this.changeUserInput(event.target.value) }
+          value = {this.state.userInput}>
+         </Input>
+
+        <Button
+          onClick={ ()=> this.addToList(this.state.userInput) }
+          ><Icon name='add'/>
+        </Button>
 
         <ul>
-          {this.state.list.map( (val)=> <li>{val}</li>)}
-        </ul>
+         {this.state.list.map(
+           (val)=> <li> <Checkbox label={<label>{val}</label>}/></li>)
+         }
 
-      </div>
+       </ul>
+
+      </Container>
     );
   }
 }

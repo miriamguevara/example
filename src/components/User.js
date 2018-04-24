@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom'
-import { Container } from 'semantic-ui-react'
+import { Container, Header, Image, Icon } from 'semantic-ui-react'
 
 import MainMenu from './MainMenu'
 
@@ -12,10 +12,17 @@ class User extends Component {
   render() {
     return (
       <Container>
-        <Container className='fancy' style={{textAlign: 'center', color: 'red'}}>
-        User Page {this.props.match.params.id}
-        </Container>
-      <MainMenu/>
+      <br />
+       <MainMenu/>
+
+        <Header as='h2' icon textAlign='left'>
+          <Header.Content>
+            Your Profile
+          </Header.Content>
+
+       </Header>
+
+
       </Container>
     );
   }
