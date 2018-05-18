@@ -33,12 +33,12 @@ class Gallery extends Component {
        <div key="key1"> <Weather/> </div>
        <div key="key2"><Search/></div>
        <div key="key3"><ToDoList/></div>
-       <div key="key4"><Calculator/></div>
+       <div key="key4"><Converter/></div>
        <div key="key5"> <Weather/> </div>
        <div key="key6"><Calculator/></div>
        <div key="key7"><Search/></div>
        <div key="key8"><GoogleMap/></div>
-       <div key="key9"><Converter/></div>
+       
      </StackGrid>
    );
   }

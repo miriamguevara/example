@@ -4,59 +4,36 @@ import {withRouter} from 'react-router-dom'
 import fire from './../utils/firebase'
 
 class ToDoList extends Component{
-  constructor(props){
+  constructor(props) {
     super(props);
-
-    this.state = {
-      userInput: ' ',
-      list: [ ]
-    }
+    this.state = { messages: [] }; // set up react state
   }
-changeUserInput(input){
-  this.setState({
-    userInput: input
-  });
-}
-//make arrary to add to list
-addToList(input){
-  let listArrary = this.state.list;
-
-  listArrary.push(input);
-
-  this.setState({
-    list: listArrary,
-    userInput: ''
-  })
-}
-
-state = {
-  value: 'test'
-}
-
+  componentWillMount(){
+    //rreate reference to items in database
+    let messagesRef = fire.database().ref('messages').orderByKey().limitToLast(100);
+    messagesRef.on('child_added', snapshot => {
+      //update state when item is added to database
+      let message = { text: snapshot.val(), id: snapshot.key };
+      this.setState({ messages: [message].concat(this.state.messages) });
+    })
+  }
+  addMessage(e){
+    e.preventDefault(); // prevent form submit from reloading the page
+    // send  item to Firebase
+    fire.database().ref('messages').push( this.inputEl.value );
+    this.inputEl.value = ''; // clear the input
+  }
   render() {
     return (
-      <div className = "actuallist" >
-      <Container>
-      <br />
-        <Input
-          placeholder='Task'
-          onChange = {event => this.changeUserInput(event.target.value) }
-          value = {this.state.userInput}>
-         </Input>
-
-        <Button
-          onClick={ ()=> this.addToList(this.state.userInput) }
-          ><Icon name='add'/>
-        </Button>
-
+      <form onSubmit={this.addMessage.bind(this)}>
+        <input type="text" ref={ el => this.inputEl = el }/>
+        <input type="submit"/>
         <ul>
-         {this.state.list.map(
-           (val)=> <li> <Checkbox label={<label>{val}</label>}/></li>)
-         }
-
-       </ul>
-       </Container>
-      </div>
+          {
+            this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
+          }
+        </ul>
+      </form>
     );
   }
 }
