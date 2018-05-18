@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom'
-import { Container, Header, Image, Icon } from 'semantic-ui-react'
+import { Container} from 'semantic-ui-react'
 
 import MainMenu from './MainMenu'
+import Gallery from './Gallery'
 
 class User extends Component {
   state = {
@@ -14,15 +15,8 @@ class User extends Component {
       <Container>
       <br />
        <MainMenu/>
-
-        <Header as='h2' icon textAlign='left'>
-          <Header.Content>
-            Your Profile
-          </Header.Content>
-
-       </Header>
-
-
+       <br/> <br/>
+       <Gallery/>
       </Container>
     );
   }

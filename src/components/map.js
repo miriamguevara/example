@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
-import GoogleMap from 'google-map-react';
-import { Container, Segment ,Header, Image, Icon, Input } from 'semantic-ui-react'
+import {withRouter} from 'react-router-dom'
+import { Container,  Segment ,Header, Input} from 'semantic-ui-react'
 
-
+import MainMenu from './MainMenu'
 const AnyReactComponent = ({ text }) => <div>{ text }</div>;
 
-export default class Map extends Component {
+class Map extends Component {
   static defaultProps = {
     center: { lat: 31.7618778, lng:-106.4850217 },
     zoom: 11
   }
+  link = ()=> {
+    this.props.history.push('/user')
+  }
 
 render() {
     return (
-      <div>
+
+      <Container>
+      <MainMenu/>
       <Segment clearing>
+
       <Header as='h2' floated='left'>
         Stores Near Me
       </Header>
@@ -35,7 +41,8 @@ render() {
           />
         </GoogleMapReact>
       </div>
-      </div>
+      </Container>
     )
   }
 }
+export default withRouter(Map);

@@ -12,6 +12,8 @@ import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import ToDoList from './components/ToDoList'
 import NearBy from './components/NearBy'
+import Fav from './components/Fav'
+import EditUser from './components/EditUser'
 import PageNotFound from './components/PageNotFound'
 
 import pastel from './images/pastel.png'
@@ -26,7 +28,7 @@ switchState = () => this.setState({comp: !this.state.comp})
   render() {
 
     return (
-      <div className = "list">
+      <div className = "app">
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/comp1' component={Comp1}/>
@@ -36,6 +38,8 @@ switchState = () => this.setState({comp: !this.state.comp})
           <Route path='/toDoList' component={ToDoList}/>
           <Route path='/user' component={User}/>
           <Route path='/nearby' component={NearBy}/>
+          <Route path='/favorites' component={Fav}/>
+          <Route path='/edituser' component={EditUser}/>
           <Route path='/' component={PageNotFound}/>
         </Switch>
       </div>

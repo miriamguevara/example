@@ -24,6 +24,8 @@ link = ()=> {
       </Button>
     )
     return (
+      <div className = "list">
+      <br/>
       <Container >
       <br/>
       <Header as='h2' floated='left'>
@@ -52,6 +54,7 @@ link = ()=> {
         </div> <br />
         {button}
     </Container>
+    </div>
     )
   }
 }

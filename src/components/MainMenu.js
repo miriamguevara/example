@@ -1,53 +1,48 @@
 import React, { Component } from 'react'
-import { Input, Menu } from 'semantic-ui-react'
+import {Button, Icon, Container, Header } from 'semantic-ui-react'
 import {Link, withRouter} from 'react-router-dom';
 
 class MainMenu extends Component {
-  state = { activeItem: 'home' }
-  handleItemClick = (
-    e, { name }) => this.setState({ activeItem: name })
-
   link = ()=> {
-      this.props.history.push('/user')
-    }
-  link2 = ()=> {
-      this.props.history.push('/toDoList')
-    }
-  link3 = ()=> {
       this.props.history.push('/')
     }
-  link4 = ()=> {
-      this.props.history.push('/nearby')
+  link2 = ()=> {
+      this.props.history.push('/edituser')
     }
 
-  render() {
-    const { activeItem } = this.state
+  render(){
+    let button = (
+      <Button  animated>
+          <Button.Content visible>
+            Log Out
+          </Button.Content>
+          <Button.Content hidden
+            onClick={this.link}
+          ><Icon name='right arrow' />
+          </Button.Content>
+      </Button>
+    )
+    let button2 = (
+      <Button icon
+        onClick={this.link2}
+        circular icon = 'user circle outline' />
 
+    )
     return (
-      <Menu secondary>
-        <Menu.Item name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-          onClick={this.link}/>
-        <Menu.Item name='list'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-          onClick={this.link2}/>
-        <Menu.Item name='Near By'
-          active={activeItem === 'friends'}
-          onClick={this.handleItemClick}
-          onClick={this.link4}/>
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
-          <Menu.Item name='logout'
-          active={activeItem === 'logout'}
-          onClick={this.handleItemClick}
-          onClick={this.link3}/>
-        </Menu.Menu>
-      </Menu>
-    );
+      <Container>
+        <br/>
+          <Header as= 'h3' floated= 'right'>
+            {button2}
+          </Header>
+          <Header as= 'h3' floated= 'right'>
+            {button}
+          </Header>
+          <Header as='h3' floated='left'>
+            Do ToDo: Home
+          </Header>
+          <br/>
+      </Container>
+    )
   }
 }
 export default withRouter(MainMenu);

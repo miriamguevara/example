@@ -1,9 +1,11 @@
-import map from './map'
+import Map from './Map'
+
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
 import { Segment, Container, Header, Image, Icon, Input } from 'semantic-ui-react'
 
-class Nearby extends Component {
+
+class NearBy extends Component {
   state = {
     value: 'hello'
   }
@@ -11,12 +13,11 @@ class Nearby extends Component {
   render() {
     return (
       <Container>
-    
-
-       <map/>
+      <br/>
+       <Map/>
       </Container>
     );
   }
 }
 
-export default withRouter(map);
+export default withRouter(NearBy);

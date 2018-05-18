@@ -1,20 +1,29 @@
+.grid-item {
+  width: 25%;
+}
+.grid-item--width2 {
+  width: 50%;
+}
+.pfpIcon{
+  text-align: center;
+}
 .list {
   text-align: center;
-  background-color: rgba(78, 84, 86, 0.10);
-  height: 800px;
-  padding-left: 5px;
 }
+
 .actuallist{
   text-align: left;
-  background-color: rgba(78, 84, 86, 0.10);
-  height: 800px;
-  padding-left: 5px;
 }
 ul li {
    list-style-type: none;
     margin: 7px;
 }
 
+.app{
+  background-color: rgba(78, 84, 86, 0.10);
+  height: 800px;
+  padding-left: 5px;
+}
 .App-logo {
   animation: App-logo-spin infinite 100s linear;
   height: 100px;
