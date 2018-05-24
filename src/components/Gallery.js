@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom'
 import StackGrid, { transitions, easings } from "react-stack-grid";
 import sizeMe from 'react-sizeme';
 
@@ -9,6 +8,7 @@ import ToDoList from './ToDoList'
 import Search from './Search'
 import GoogleMap from './GoogleMap'
 import Converter from './Converter'
+import Pinterest from './Pinterest'
 
 
 const transition = transitions.scaleDown;
@@ -30,15 +30,15 @@ class Gallery extends Component {
        entered={transition.entered}
        leaved={transition.leaved}
      >
-       <div key="key1"> <Weather/> </div>
+       <div key="key1"> <Calculator/> </div>
        <div key="key2"><Search/></div>
-       <div key="key3"><ToDoList/></div>
-       <div key="key4"><Converter/></div>
-       <div key="key5"> <Weather/> </div>
-       <div key="key6"><Calculator/></div>
-       <div key="key7"><Search/></div>
-       <div key="key8"><GoogleMap/></div>
-       
+       <div key="key3"><GoogleMap/></div>
+       <div key="key4"><Weather/></div>
+       <div key="key5"> <ToDoList/> </div>
+       <div key="key6"><Converter/></div>
+
+       <div key = "key7"><Pinterest/></div>
+
      </StackGrid>
    );
   }

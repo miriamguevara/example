@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import {Container, Button, Header, Icon, Image } from 'semantic-ui-react'
+import {Container, Button, Header, Icon } from 'semantic-ui-react'
 import {Link, withRouter} from 'react-router-dom';
-
-import SignUp from './SignUp'
 
 class HeaderExampleUsersIcon extends Component{
   state={

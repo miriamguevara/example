@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import {Container, Button, Input, Icon, Checkbox } from 'semantic-ui-react';
+import {Button } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom'
 import fire from './../utils/firebase'
 
@@ -23,14 +23,27 @@ class ToDoList extends Component{
     fire.database().ref('messages').push( this.inputEl.value );
     this.inputEl.value = ''; // clear the input
   }
+  //handleRemove(key) {
+  //     return fire.database().ref('messages').child('ITEM_KEY').remove();
+//  }
   render() {
+    let button = (
+      <Button basic
+        onClick={this.handleRemove}
+        circular icon = 'trash' />
+
+    )
     return (
       <form onSubmit={this.addMessage.bind(this)}>
-        <input type="text" ref={ el => this.inputEl = el }/>
-        <input type="submit"/>
+        <div class="ui input">
+          <input  ref={ el => this.inputEl = el }/>
+        </div>
+        <div class="ui input">
+          <input type="submit"/>
+        </div>
         <ul>
           {
-            this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
+            this.state.messages.map( message => <li key={message.id}>{message.text} {button}</li> )
           }
         </ul>
       </form>

@@ -38,7 +38,7 @@ class MainMenu extends Component {
             {button}
           </Header>
           <Header as='h3' floated='left'>
-            Do ToDo: Home
+            Do ToDo
           </Header>
           <br/>
       </Container>

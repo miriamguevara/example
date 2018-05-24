@@ -12,11 +12,9 @@ import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import ToDoList from './components/ToDoList'
 import NearBy from './components/NearBy'
-import Fav from './components/Fav'
 import EditUser from './components/EditUser'
 import PageNotFound from './components/PageNotFound'
 
-import pastel from './images/pastel.png'
 class App extends Component {
   state = {
     comp: true
@@ -38,7 +36,6 @@ switchState = () => this.setState({comp: !this.state.comp})
           <Route path='/toDoList' component={ToDoList}/>
           <Route path='/user' component={User}/>
           <Route path='/nearby' component={NearBy}/>
-          <Route path='/favorites' component={Fav}/>
           <Route path='/edituser' component={EditUser}/>
           <Route path='/' component={PageNotFound}/>
         </Switch>

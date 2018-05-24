@@ -9,4 +9,12 @@ var config = {
 };
 
 var fire = firebase.initializeApp(config);
+
+const auth = firebase.auth();
+
+export {
+  auth,
+  firebase,
+};
+
 export default fire;

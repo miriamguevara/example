@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Container } from 'semantic-ui-react'
+import { Container,Header } from 'semantic-ui-react'
 
 class PageNotFound extends Component {
   state = {
@@ -12,10 +12,11 @@ class PageNotFound extends Component {
   render() {
 
     return (
-      
-      <Container className='fancy' style={{textAlign: 'center', color: 'blue'}}>
-      Page Not Found !!!!
 
+      <Container >
+      <Header as='h2' floated='center'>
+          Page Not Found!
+        </Header>
       </Container>
     );
   }

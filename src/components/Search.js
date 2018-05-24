@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import fire from './../utils/firebase';
-import {Link, withRouter} from 'react-router-dom'
-import { Input, Container} from 'semantic-ui-react'
+
+import { withRouter} from 'react-router-dom'
+import { Input, Button} from 'semantic-ui-react'
 
 
 class Search extends Component {
   render() {
     return (
-      <Container>
-        <Input icon='search' placeholder='Search...' />
-      </Container>
+      <form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
+        <div class="ui input">
+          <input name="sitesearch" type="hidden" />
+            <input autocomplete="on" class="form-control search" name="q" placeholder=" " required="required"  type="text"/>
+          <Button class="button" type="submit">Search</Button>
+        </div>
+      </form>
     );
   }
 }
-
 export default withRouter(Search);
